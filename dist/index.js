@@ -24748,7 +24748,7 @@ async function run() {
         const domain = core.getInput('domain');
         // const GH_TOKEN: string = core.getInput('gh_token')
         core.debug(`Await ${+ms / 1000}sec till website deploy is live`);
-        await (0, wait_1.wait)(parseInt(ms, 10));
+        (0, wait_1.wait)(parseInt(ms, 10));
         core.debug(`Getting your website report ...`);
         const { score, secretsReport } = await getReport(domain);
         core.setOutput('score', `Your website overall score: ${score}\n`);
@@ -24769,15 +24769,23 @@ async function run() {
 }
 exports.run = run;
 async function getReport(url) {
-    const http = new http_client_1.HttpClient();
-    const nudgeerURL = '161.35.168.63:8000';
-    const payload = JSON.stringify({ url });
-    const report = await http.post(`${nudgeerURL}/report`, payload);
-    const reportJson = JSON.parse(await report.readBody());
-    return {
-        score: reportJson.total_score,
-        secretsReport: reportJson.secrets_report
-    };
+    try {
+        const http = new http_client_1.HttpClient('Nudgeer-action');
+        const nudgeerURL = 'http://161.35.168.63:8000';
+        const payload = JSON.stringify({ url });
+        const report = await http.post(`${nudgeerURL}/report`, payload, {
+            'content-type': 'application/json'
+        });
+        const reportJson = JSON.parse(await report.readBody());
+        return {
+            score: reportJson.total_score,
+            secretsReport: reportJson.secrets_report
+        };
+    }
+    catch (error) {
+        console.error('Error fetching report:', error);
+        throw error;
+    }
 }
 async function writePRComment() {
     return 'not implemented yet';
@@ -24799,13 +24807,8 @@ exports.wait = void 0;
  * @param milliseconds The number of milliseconds to wait.
  * @returns {Promise<string>} Resolves with 'done!' after the wait is over.
  */
-async function wait(milliseconds) {
-    return new Promise(resolve => {
-        if (isNaN(milliseconds)) {
-            throw new Error('milliseconds not a number');
-        }
-        setTimeout(() => resolve('done!'), milliseconds);
-    });
+function wait(milliseconds) {
+    setTimeout(() => 'hi', milliseconds);
 }
 exports.wait = wait;
 

@@ -38,19 +38,21 @@ async function getReport(
   url: string
 ): Promise<{ score: number; secretsReport: string }> {
   try {
-    const http = new HttpClient('Nudgeer-action');
-    const nudgeerURL = 'http://161.35.168.63:8000';
-    const payload = JSON.stringify({ url });
-    const report = await http.post(`${nudgeerURL}/report`, payload);
-    const reportJson = JSON.parse(await report.readBody());
+    const http = new HttpClient('Nudgeer-action')
+    const nudgeerURL = 'http://161.35.168.63:8000'
+    const payload = JSON.stringify({ url })
+    const report = await http.post(`${nudgeerURL}/report`, payload, {
+      'content-type': 'application/json'
+    })
+    const reportJson = JSON.parse(await report.readBody())
 
     return {
       score: reportJson.total_score,
       secretsReport: reportJson.secrets_report
-    };
+    }
   } catch (error) {
-    console.error('Error fetching report:', error);
-    throw error;
+    console.error('Error fetching report:', error)
+    throw error
   }
 }
 
