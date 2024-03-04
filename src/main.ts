@@ -38,7 +38,7 @@ async function getReport(
   url: string
 ): Promise<{ score: number; secretsReport: string }> {
   const http = new HttpClient()
-  const nudgeerURL = '161.35.168.63:8000'
+  const nudgeerURL = 'http://161.35.168.63:8000'
   const payload = JSON.stringify({ url })
   const report = await http.post(`${nudgeerURL}/report`, payload)
   const reportJson = JSON.parse(await report.readBody())
