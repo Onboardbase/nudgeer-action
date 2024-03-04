@@ -37,15 +37,20 @@ export async function run(): Promise<void> {
 async function getReport(
   url: string
 ): Promise<{ score: number; secretsReport: string }> {
-  const http = new HttpClient()
-  const nudgeerURL = 'http://161.35.168.63:8000'
-  const payload = JSON.stringify({ url })
-  const report = await http.post(`${nudgeerURL}/report`, payload)
-  const reportJson = JSON.parse(await report.readBody())
+  try {
+    const http = new HttpClient('Nudgeer-action');
+    const nudgeerURL = 'http://161.35.168.63:8000';
+    const payload = JSON.stringify({ url });
+    const report = await http.post(`${nudgeerURL}/report`, payload);
+    const reportJson = JSON.parse(await report.readBody());
 
-  return {
-    score: reportJson.total_score,
-    secretsReport: reportJson.secrets_report
+    return {
+      score: reportJson.total_score,
+      secretsReport: reportJson.secrets_report
+    };
+  } catch (error) {
+    console.error('Error fetching report:', error);
+    throw error;
   }
 }
 
