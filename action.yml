@@ -15,9 +15,9 @@ inputs:
   wait:
     description: 'Used to wait till the deployment is live'
     default: '3000' # 3sec default
-  gh_token:
-    description: 'Used to comment on the PR, GH token for the repo with write access'
-    required: true
+  # gh_token:
+  #   description: 'Used to comment on the PR, GH token for the repo with write access'
+  #   required: true
 
 # Define your outputs here.
 outputs:
