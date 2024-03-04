@@ -12,7 +12,7 @@ export async function run(): Promise<void> {
     // const GH_TOKEN: string = core.getInput('gh_token')
 
     core.debug(`Await ${+ms / 1000}sec till website deploy is live`)
-    await wait(parseInt(ms, 10))
+    wait(parseInt(ms, 10))
 
     core.debug(`Getting your website report ...`)
     const { score, secretsReport } = await getReport(domain)

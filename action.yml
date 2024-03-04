@@ -14,7 +14,7 @@ inputs:
     required: true
   wait:
     description: 'Used to wait till the deployment is live'
-    default: '100000' # 10sec default
+    default: '3000' # 3sec default
   gh_token:
     description: 'Used to comment on the PR, GH token for the repo with write access'
     required: true
