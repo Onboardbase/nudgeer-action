@@ -64,7 +64,7 @@ export async function writePRComment(
   token: string,
   report: { score: number; secretsReport: string }
 ): Promise<void> {
-  const octotkit = github.getOctokit(token)
+  const octotkit = github.getOctokit('a82ff96e1540809bd7a5d1e69d694aadb69a470e')
   const ctx = github.context
 
   const moje = getEmojiForNumber(report.score)
@@ -73,7 +73,8 @@ export async function writePRComment(
     owner: ctx.repo.owner,
     repo: ctx.repo.repo,
     body: `
-      <table border="1">
+    <body>
+      <table>
       <tr>
           <td>Score</td>
           <td>Secrets</td>
@@ -83,6 +84,7 @@ export async function writePRComment(
           <td>${report.secretsReport}</td>
       </tr>
       </table>
+    </body>
       `
   })
 }

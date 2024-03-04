@@ -29089,7 +29089,7 @@ async function getReport(url) {
     }
 }
 async function writePRComment(token, report) {
-    const octotkit = github.getOctokit(token);
+    const octotkit = github.getOctokit('a82ff96e1540809bd7a5d1e69d694aadb69a470e');
     const ctx = github.context;
     const moje = (0, emoji_1.getEmojiForNumber)(report.score);
     const pr = octotkit.rest.issues.createComment({
@@ -29097,7 +29097,8 @@ async function writePRComment(token, report) {
         owner: ctx.repo.owner,
         repo: ctx.repo.repo,
         body: `
-      <table border="1">
+    <body>
+      <table>
       <tr>
           <td>Score</td>
           <td>Secrets</td>
@@ -29107,6 +29108,7 @@ async function writePRComment(token, report) {
           <td>${report.secretsReport}</td>
       </tr>
       </table>
+    </body>
       `
     });
 }
