@@ -1,21 +1,22 @@
 {
-  "name": "typescript-action",
-  "description": "GitHub Actions TypeScript template",
-  "version": "0.0.0",
-  "author": "",
+  "name": "nudgeer-action",
+  "description": "Security insights on each deployment",
+  "version": "0.1.0",
+  "author": "Mahmoud@onboardbase",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
+  "homepage": "https://github.com/actions/nudgeer-action",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/onboardbase/nudgeer-action.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
+    "url": "https://github.com/onboardbase/nudgeer-action/issues"
   },
   "keywords": [
     "actions",
-    "node",
-    "setup"
+    "deployment",
+    "deploy",
+    "security"
   ],
   "exports": {
     ".": "./dist/index.js"
@@ -66,7 +67,9 @@
     ]
   },
   "dependencies": {
-    "@actions/core": "^1.10.1"
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "@actions/http-client": "^2.2.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

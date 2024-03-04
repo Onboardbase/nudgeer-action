@@ -1,23 +1,30 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Nudgeer Action'
+description: 'Get your security insights on each deployment'
+author: 'Mahmoud@Onboardbase'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: 'heart'
-  color: 'red'
+  icon: 'shield'
+  color: 'green'
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  domain:
+    description: 'Your domain, deployment domain'
     required: true
-    default: '1000'
+  wait:
+    description: 'Used to wait till the deployment is live'
+    default: '100000' # 10sec default
+  gh_token:
+    description: 'Used to comment on the PR, GH token for the repo with write access'
+    required: true
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  score:
+    description: 'Nudgeer score'
+  report:
+    description: 'Nudgeer secrets report details'
 
 runs:
   using: node20
