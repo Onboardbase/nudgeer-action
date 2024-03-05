@@ -11,7 +11,7 @@ export async function run(): Promise<void> {
   try {
     const ms: string = core.getInput('wait')
     const domain: string = core.getInput('domain')
-    const GH_TOKEN: string = core.getInput('gh_token')
+    const GH_TOKEN: string = core.getInput('github_token')
 
     core.debug(`Await ${+ms / 1000}sec till website deploy is live`)
     wait(parseInt(ms, 10))
