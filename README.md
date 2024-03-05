@@ -1,9 +1,12 @@
-<div align=“center”>
+<div style="text-align: center;">
 
 # Nudgeer action 
 
 This action is built to help your CI to validate your deployment security and should run through PR only.
+
+Check out [Website](https://nudgeer.com/) and [Documentation](https://docs.nudgeer.com/) for more
 </div>
+
 
 ## Usage
 
