@@ -17,7 +17,7 @@ inputs:
     default: '3000' # 3sec default
   github_token:
     description: 'Used to comment on the PR, GH token for the repo with write access'
-    default: ${{ gitub.token }}
+    default: ${{ github.token }}
     required: false
 
 # Define your outputs here.
