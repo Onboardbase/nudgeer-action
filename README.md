@@ -1,7 +1,9 @@
+<div align=“center”>
 
-# Nudgeer action help your CI to validate your deployment security
+# Nudgeer action 
 
-This action should run through PR only, it will not perform the needed job otherwise
+This action is built to help your CI to validate your deployment security and should run through PR only.
+</div>
 
 ## Usage
 
