@@ -1,4 +1,8 @@
 
+Nudgeer action help your CI to validate your deployment security needs
+
+! This action should run through PR only, it will not perform the needed job
+
 ## Usage
 
 - Usage for check static domain after the PR got merged
