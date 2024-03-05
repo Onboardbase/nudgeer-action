@@ -26,7 +26,7 @@ jobs:
         uses: onboardbase/nudgeer-action@v2
         with:
           domain: ${{ secrets.DOMAIN }}
-          wait: '1000' # deafult 10sec
+          wait: '1000' # default 10sec
 ```
 
 Via deployment preview.
