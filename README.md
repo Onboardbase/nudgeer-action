@@ -1,11 +1,11 @@
 
-Nudgeer action help your CI to validate your deployment security needs
+# Nudgeer action help your CI to validate your deployment security
 
-! This action should run through PR only, it will not perform the needed job
+This action should run through PR only, it will not perform the needed job otherwise
 
 ## Usage
 
-- Usage for check static domain after the PR got merged
+Check static domain after a PR gets merged.
 
 ```yaml
 name: 'Check security by Nudgeer'
@@ -27,7 +27,7 @@ jobs:
           wait: '1000' # deafult 10sec
 ```
 
-- Advanced Usage with a deployment preview
+Via deployment preview.
 
 ```yaml
 name: 'Check security by Nudgeer'
