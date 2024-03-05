@@ -29078,22 +29078,10 @@ async function run() {
             await createComment({
                 ...ctx.repo,
                 issue_number,
-                body: `
-    <body>
-      <table>
-      <tr>
-          <td>Score</td>
-          <td>Secrets</td>
-      </tr>
-      <tr>
-          <td>${score} ${moje}</td>
-          <td>${secretsReport}</td>
-      </tr>
-      </table>
-    </body>
+                body: `<body>
+        <table><tr><td>Score</td><td>Secrets</td></tr><tr><td>${score} ${moje}</td><td>${secretsReport}</td></tr></table></body>
 
-    [Nudgeer](https://nudgeer.com)
-      `
+For more detailed report visit [Nudgeer](https://nudgeer.com)`
             });
     }
     catch (error) {
