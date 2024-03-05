@@ -39,11 +39,11 @@ jobs:
 
       - name: Install Dependencies
         id: install
-        run: npm ci
+        run: yarn install
 
       - name: Build dist/ Directory
         id: build
-        run: npm run bundle
+        run: yarn bundle
 
       # This will fail the workflow if the PR wasn't created by Dependabot.
       - name: Compare Directories
