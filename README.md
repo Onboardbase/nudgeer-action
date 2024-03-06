@@ -28,7 +28,7 @@ jobs:
       - name: Check website
         uses: onboardbase/nudgeer-action@v2
         with:
-          domain: ${{ secrets.DOMAIN }}
+          domain: "yourdomain.com"
           wait: '1000' # default 10sec
 ```
 
