@@ -10,15 +10,20 @@ Check out [Website](https://nudgeer.com/) and [Documentation](https://docs.nudge
 
 ## Usage
 
-Check static domain after a PR gets merged.
+### Check static domain after a PR gets merged.
+
+You have a way that your website get deployed on merge to main, all you have to make sure from, to put time that you believe your website will be live after that time
 
 ```yaml
 name: 'Check security by Nudgeer'
 
-on:
-  pull_request:
+on:  
+  pull_request:  
     types: [closed]
+    branches:
+      - main
 
+<<<<<<< Updated upstream
 jobs:
   build:
       name: check
@@ -29,7 +34,20 @@ jobs:
         uses: onboardbase/nudgeer-action@v2
         with:
           domain: "yourdomain.com"
+=======
+jobs:  
+  build:  
+      name: check  
+      runs-on: ubuntu-latest  
+      if: github.event.pull_request.merged == true  
+      steps:  
+      - name: Check website  
+        uses: onboardbase/nudgeer-action@v2  
+        with:  
+          domain: "yourdomain.com"  
+>>>>>>> Stashed changes
           wait: '1000' # default 10sec
+       
 ```
 
 Via deployment preview.
@@ -59,12 +77,11 @@ jobs:
     name: Check Security
     runs-on: ubuntu-latest
     needs: [deploy_preview] 
-    if: github.event.pull_request.merged == true
     steps:
       - name: Check website
         uses: onboardbase/nudgeer-action@v2
         with:
           domain: ${{ needs.deploy_preview.outputs.preview_domain }}
-          wait: '4000'
+          wait: '4000' # no need to wait, as the deploy job will be finished and live
 
 ```
