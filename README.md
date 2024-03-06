@@ -37,7 +37,9 @@ jobs:
        
 ```
 
-Via deployment preview.
+### Via deployment preview.
+
+if you have an action, or app that mange the `preview_deployment` you could combine these together.
 
 ```yaml
 name: 'Check security by Nudgeer'
