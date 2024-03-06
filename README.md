@@ -23,18 +23,6 @@ on:
     branches:
       - main
 
-<<<<<<< Updated upstream
-jobs:
-  build:
-      name: check
-      runs-on: ubuntu-latest
-      if: github.event.pull_request.merged == true
-      steps:
-      - name: Check website
-        uses: onboardbase/nudgeer-action@v2
-        with:
-          domain: "yourdomain.com"
-=======
 jobs:  
   build:  
       name: check  
@@ -45,7 +33,6 @@ jobs:
         uses: onboardbase/nudgeer-action@v2  
         with:  
           domain: "yourdomain.com"  
->>>>>>> Stashed changes
           wait: '1000' # default 10sec
        
 ```
